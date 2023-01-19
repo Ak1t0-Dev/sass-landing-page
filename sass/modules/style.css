@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  width: 100%;
+  font-family: "Titillium Web", sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: black;
+  color: white;
+}
+header .logo {
+  padding: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+header ul {
+  list-style: none;
+}
+header ul li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  padding: 8px 0;
+}
+header ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  padding: 16px 8px;
+}
+
+p {
+  padding: 0 16px;
+  text-align: left;
+}
+
+section {
+  padding: 16px 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: bisque;
+  padding: 16px 0;
+}
+footer .icons {
+  font-size: x-large;
+}
+footer .email-item {
+  padding: 4px 0;
+}
+footer .email-item span {
+  font-size: 14px;
+  color: gray;
+}
+footer .footer-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+footer .footer-list ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+footer .footer-list ul li {
+  min-width: 250px;
+  text-align: center;
+  padding: 8px 0;
+}
+footer .footer-list ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+#introduce {
+  background-color: aliceblue;
+}
+
+#picture {
+  background-color: black;
+  color: white;
+  padding: 16px 0;
+}
+#picture .concept {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: larger;
+  padding-bottom: 16px;
+}
+#picture .concept .fa-snowflake {
+  padding: 0 8px;
+}
+#picture .image {
+  overflow: hidden;
+}
+#picture .image img {
+  width: 350px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center 20%;
+     object-position: center 20%;
+}
+
+#about {
+  display: grid;
+  grid-template-areas: none;
+  grid-template-columns: none;
+  grid-template-rows: none;
+}
+#about .introduction {
+  padding-bottom: 8px;
+}
+#about .policy-main {
+  padding: 16px 0;
+}
+#about .policy {
+  border-top: 1px solid gray;
+  padding: 16px 0;
+}
+#about .policy h3 {
+  padding-bottom: 8px;
+}
+#about .policy p {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  color: darkslategray;
+}
+
+#expertise {
+  background-color: burlywood;
+  padding: 0;
+}
+#expertise .expertise {
+  padding: 16px 0;
+  border-bottom: 2px solid gray;
+}
+#expertise .expertise .expertise-img {
+  font-size: xx-large;
+}
+#expertise .expertise p {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+#expertise .expertise .all-services {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 16px auto;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  border-radius: 8px;
+}
+#expertise .expertise .all-services span {
+  color: white;
+}
+#expertise .expertise .all-services .fa-arrow-right {
+  margin-left: 10px;
+}
+#expertise .exp-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#expertise .exp-detail .expertise-content {
+  width: 80%;
+}
+#expertise .exp-detail .expertise-arrow {
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  border-radius: 50px;
+  margin: auto 8px;
+}
+
+.fa-arrow-right {
+  color: white;
+  transform: rotate(-45deg);
+}
+
+#experience h1 {
+  font-size: 40px;
+}
+
+#team {
+  background-color: black;
+  color: white;
+}
+#team .team-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#team .team-images .team-member {
+  width: 250px;
+  aspect-ratio: 3/4;
+  padding: 10px 12px;
+  margin: 15px 15px;
+  background-color: #1b1b1b;
+  border-radius: 16px;
+  position: relative;
+}
+#team .team-images .team-member h3, #team .team-images .team-member h4 {
+  text-align: left;
+}
+#team .team-images .team-member h3 {
+  padding: 8px 0;
+}
+#team .team-images .team-member img {
+  width: 90%;
+  margin: 16px 0;
+}
+#team .team-images .linkedin .fa-linkedin-in {
+  padding: 6px 0;
+  width: 30px;
+  height: 30px;
+  background-color: #5693e8;
+  border-radius: 50px;
+  margin: auto 8px;
+  position: absolute;
+  bottom: 14px;
+  right: 8px;
+}
+
+#contact .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#contact .form input {
+  padding: 8px 0;
+  margin: 8px 0;
+  width: 80%;
+}
+#contact .form #submit {
+  background-color: black;
+  color: white;
+  margin-top: 9px;
+  padding: 8px;
+}/*# sourceMappingURL=style.css.map */

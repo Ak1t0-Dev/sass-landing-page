@@ -1,0 +1,177 @@
+@use "variables";
+@use "mixin";
+
+#introduce {
+    background-color: aliceblue;
+}
+
+#picture {
+    // background-color: black;
+    // color: white;
+
+    @include mixin.colorContrast;
+    padding: 16px 0;
+
+    .concept {
+        @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+        font-size: larger;
+        padding-bottom: 16px;
+
+        .fa-snowflake {
+            padding: 0 8px;
+        }
+    }
+
+    .image {
+        overflow: hidden;
+
+        img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+    }
+}
+
+#about {
+    @include mixin.gridContainer($grid-template-areas: none, $grid-template-columns: none, $grid-template-rows: none);
+
+    .introduction {
+        padding-bottom: 8px;
+    }
+
+    .policy-main {
+        padding: 16px 0;
+    }
+
+    .policy {
+        border-top: 1px solid gray;
+        padding: 16px 0;
+
+        h3 {
+            padding-bottom: 8px;
+        }
+
+        p {
+            @include mixin.paragraphAdjust;
+            color: darkslategray;
+        }
+    }
+}
+
+#expertise {
+    background-color: burlywood;
+    padding: 0;
+
+    .expertise {
+        padding: 16px 0;
+        border-bottom: 2px solid gray;
+
+        .expertise-img {
+            font-size: xx-large;
+        }
+
+        p {
+            @include mixin.paragraphAdjust;
+        }
+
+        .all-services {
+            @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+            margin: 16px auto;
+            width: 150px;
+            height: 50px;
+            background-color: black;
+            border-radius: 8px;
+
+            span {
+                color: white;
+            }
+
+            .fa-arrow-right {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .exp-detail {
+        @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+
+        .expertise-content {
+            width: 80%;
+        }
+
+        .expertise-arrow {
+            @include mixin.icon;
+        }
+    }
+
+}
+
+.fa-arrow-right {
+    color: white;
+    transform: rotate(-45deg);
+}
+
+#experience {
+    h1 {
+        font-size: 40px;
+    }
+}
+
+#team {
+    @include mixin.colorContrast;
+
+    .team-images {
+        @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+        .team-member {
+            width: 250px;
+            aspect-ratio: 3 / 4;
+            padding: 10px 12px;
+            margin: 15px 15px;
+            background-color: #1b1b1b;
+            border-radius: 16px;
+            position: relative;
+            h3, h4 {
+                text-align: left;
+            }
+            h3 {
+                padding: 8px 0;
+            }
+            img {
+                width: 90%;
+                margin: 16px 0;
+            }
+        }
+
+        .linkedin {
+            .fa-linkedin-in {
+                padding: 6px 0;
+                @include mixin.icon($width: 30px, $height: 30px, $background-color: #5693e8, $border-radius: 50px, $margin: auto 8px);
+                position: absolute;
+                bottom: 14px;
+                right: 8px;
+            }
+        }
+    }
+}
+
+#contact {
+    .form {
+        @include mixin.flexContainer($flex-direction: column, $justify-content: center, $align-items: center);
+
+        input {
+            padding: 8px 0;
+            margin: 8px 0;
+            width: 80%;
+        }
+
+        #submit {
+            @include mixin.colorContrast;
+            margin-top: 9px;
+            padding: 8px;
+        }
+    }
+}
+
+#repeat {}
