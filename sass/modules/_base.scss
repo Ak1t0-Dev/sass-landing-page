@@ -1,9 +1,9 @@
-// ------------------------------------------------------------------
-// Base Style
-// ------------------------------------------------------------------
 @use "variables";
 @use "mixin";
 
+// ------------------------------------------------------------------------------------------------------------------------
+// basic style
+// ------------------------------------------------------------------------------------------------------------------------
 * {
     margin: 0;
     padding: 0;
@@ -16,10 +16,50 @@ body {
     font-family: variables.$font-stack;
 }
 
+h1,
+h2 {
+    width: 80%;
+    padding: 4px 0;
+    margin: auto;
+}
+
+h2 {
+    @include mixin.mq(tablet) {
+        font-size: 32px;
+    }
+}
+
+p {
+    width: 80%;
+    padding: 4px 0;
+    margin: auto;
+    text-align: left;
+}
+
+section {
+    padding: 16px 0;
+}
+
+.divider {
+    @include mixin.divider;
+}
+
+// ------------------------------------------------------------------------------------------------------------------------
+// header section
+// ------------------------------------------------------------------------------------------------------------------------
 header {
-    @include mixin.flexContainer($flex-direction: column, $justify-content: center, $align-items: center);
-    background-color: black;
-    color: white;
+    @include mixin.flexContainer(column, center, center);
+    @include mixin.colorContrast;
+
+    // responsive
+    @include mixin.mq(tablet) {
+        @include mixin.flexContainer(row, space-between, center);
+        padding: 0 16px;
+    }
+
+    .logo:hover {
+        color: #7DB9DE;
+    }
 
     .logo {
         padding: 8px;
@@ -30,68 +70,120 @@ header {
     ul {
         list-style: none;
 
+        // responsive
+        @include mixin.mq(tablet) {
+            @include mixin.flexContainer(row, space-between, center);
+
+        }
+
         li {
             width: fit-content;
             margin: auto;
             padding: 8px 0;
 
+            // responsive
+            @include mixin.mq(tablet) {
+                padding: 8px;
+            }
+
             a {
-                text-decoration: none;
-                color: white;
+                @include mixin.aTagDecorate(none, #FFFFFB);
+            }
+
+            a:hover {
+                color: #7DB9DE;
             }
         }
     }
 }
 
-h1 {
-    padding: 16px 8px;
-}
-
-p {
-    padding: 0 16px;
-    text-align: left;
-
-}
-
-section {
-    padding: 16px 0;
-}
-
+// ------------------------------------------------------------------------------------------------------------------------
+// footer section
+// ------------------------------------------------------------------------------------------------------------------------
 footer {
-    @include mixin.flexContainer($flex-direction: column, $justify-content: space-between, $align-items: center);
-    background-color: bisque;
+    @include mixin.flexContainer(column, space-between, center);
+    @include mixin.colorContrast(#FFFFFB, #080808);
     padding: 16px 0;
 
-    .icons {
-        font-size: x-large;
+    // responsive
+    @include mixin.mq(tablet) {
+        @include mixin.gridContainer(none, 2fr 3fr, none);
+        height: 40vh;
     }
 
-    .email-item {
-        padding: 4px 0;
+    .contacts {
 
-        span {
-            font-size: 14px;
-            color: gray;
+        @include mixin.mq(tablet) {
+            grid-column: 1 / 2;
         }
+
+        .icons {
+            font-size: x-large;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                font-size: xx-large;
+            }
+
+            .fa-brands:hover {
+                color: #005CAF;
+            }
+        }
+
+
+
+        .email-item {
+            padding: 4px 0;
+
+            h4 {
+                @include mixin.mq(tablet) {
+                    font-size: 20px;
+                }
+            }
+
+            span {
+                font-size: 14px;
+                color: #373C38;
+
+                // responsive
+                @include mixin.mq(tablet) {
+                    font-size: 18px;
+                }
+            }
+
+        }
+
     }
 
     .footer-list {
-        @include mixin.flexContainer($flex-direction: row, $justify-content: space-around, $align-items: center);
+        @include mixin.flexContainer(row, space-around, center);
+
+        // responsive
+        @include mixin.mq(tablet) {
+            @include mixin.gridContainer(none, repeat(2, 1fr), none);
+        }
+
         ul {
-            @include mixin.flexContainer($flex-direction: column, $justify-content: center, $align-items: center);
+            @include mixin.flexContainer(column, center, center);
             list-style: none;
+
             li {
                 min-width: 250px;
-                // width: fit-content;
-                // margin: 0 auto;
                 text-align: center;
                 padding: 8px 0;
 
                 a {
-                    text-decoration: none;
-                    color: black;
+                    @include mixin.aTagDecorate;
+                }
+            }
+
+            li:hover {
+                background-color: #1C1C1C;
+                a {
+                    color: #FFFFFB;
                 }
             }
         }
+
     }
 }

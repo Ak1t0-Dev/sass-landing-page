@@ -1,177 +1,600 @@
 @use "variables";
 @use "mixin";
 
+
+// ------------------------------------------------------------------------------------------------------------------------
+// introduction section
+// ------------------------------------------------------------------------------------------------------------------------
 #introduce {
-    background-color: aliceblue;
+    background-color: #FFFFFB;
+
+    h1 {
+        // responsive
+        @include mixin.mq(tablet) {
+            font-size: xx-large;
+        }
+    }
+
+    p {
+        // responsive
+        @include mixin.mq(tablet) {
+            font-size: x-large;
+            width: 90%;
+            margin: 16px auto;
+        }
+    }
+
 }
 
+// ------------------------------------------------------------------------------------------------------------------------
+// picture section
+// ------------------------------------------------------------------------------------------------------------------------
 #picture {
-    // background-color: black;
-    // color: white;
-
     @include mixin.colorContrast;
-    padding: 16px 0;
+    padding: 0 0 16px 0;
+
+    // responsive
+    @include mixin.mq(tablet) {
+        @include mixin.gridContainer("concept image", repeat(2, 1fr), 80vh);
+        place-items: center;
+        padding: 0;
+    }
 
     .concept {
-        @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
-        font-size: larger;
-        padding-bottom: 16px;
+        @include mixin.colorContrast(#1C1C1C);
+        padding: 16px 0;
+        margin-bottom: 16px;
 
-        .fa-snowflake {
-            padding: 0 8px;
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: concept;
+            @include mixin.flexContainer;
+            margin: 0 36px;
+            width: 80%;
+            height: 90%;
+        }
+
+        .center {
+            @include mixin.mq(tablet) {
+                width: 320px;
+            }
+
+            .inline-center {
+                vertical-align: middle;
+
+                // responsive
+                @include mixin.mq(tablet) {
+                    display: inline-block;
+                    margin: 10px;
+                }
+            }
+
+            span {
+                font-size: x-large;
+
+                // responsive
+                @include mixin.mq(tablet) {
+                    font-size: 40px;
+                }
+            }
+
+            .fa-snowflake {
+                padding: 0 8px;
+                font-size: x-large;
+
+                // responsive
+                @include mixin.mq(tablet) {
+                    font-size: 56px;
+                }
+            }
         }
     }
 
     .image {
         overflow: hidden;
 
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: image;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
         img {
             width: 350px;
             height: 350px;
             object-fit: cover;
-            object-position: center 20%;
+            object-position: center 50%;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform-origin: 50% 50%;
+            }
         }
     }
 }
 
+// ------------------------------------------------------------------------------------------------------------------------
+// about section
+// ------------------------------------------------------------------------------------------------------------------------
 #about {
-    @include mixin.gridContainer($grid-template-areas: none, $grid-template-columns: none, $grid-template-rows: none);
+
+    // responsive
+    @include mixin.mq(tablet) {
+        @include mixin.gridContainer("introduction introduction introduction" "policy-main policy financial" "policy-main management secure", repeat(3, 1fr), 2fr repeat(2, 1.5fr), 8px);
+        margin: auto 12px;
+    }
 
     .introduction {
         padding-bottom: 8px;
+
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: introduction;
+            @include mixin.flexContainer(column, top, left);
+
+            h2 {
+                text-align: left;
+                margin: 0;
+                padding-left: 16px;
+            }
+
+            p {
+                margin: 0;
+                padding-left: 16px;
+                font-size: 32px;
+                width: 100%;
+                word-wrap: break-word;
+            }
+        }
+
+        // responsive
+        @include mixin.mq(laptop) {
+            @include mixin.flexContainer(column, top, left);
+
+            h2 {
+                text-align: left;
+                margin: 0;
+                padding-left: 16px;
+                padding-bottom: 16px;
+            }
+
+            p {
+                margin: 0;
+                padding-left: 16px;
+                font-size: 32px;
+                width: 80%;
+                word-wrap: break-word;
+            }
+        }
     }
 
     .policy-main {
-        padding: 16px 0;
+        padding: 10px 0;
+        font-size: larger;
+
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: policy-main;
+        }
     }
 
+
     .policy {
-        border-top: 1px solid gray;
-        padding: 16px 0;
+        padding: 10px 16px;
 
         h3 {
-            padding-bottom: 8px;
+            padding: 10px 0;
         }
 
         p {
             @include mixin.paragraphAdjust;
-            color: darkslategray;
+            color: #373C38;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                @include mixin.paragraphAdjust(7);
+                padding: 0 4px;
+            }
         }
     }
+
+    #strategy {
+
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: strategy;
+        }
+    }
+
+    #financial {
+
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: financial;
+        }
+    }
+
+    #management {
+
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: management;
+        }
+    }
+
+    #secure {
+
+        // responsive
+        @include mixin.mq(tablet) {
+            grid-area: secure;
+        }
+    }
+
+    .emphasis {
+        h3 {
+            color: #4B4E2A;
+        }
+
+        p {
+            @include mixin.paragraphAdjust;
+            color: #4D5139;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                @include mixin.paragraphAdjust(7);
+            }
+        }
+    }
+
 }
 
-#expertise {
-    background-color: burlywood;
-    padding: 0;
+// ------------------------------------------------------------------------------------------------------------------------
+// service section
+// ------------------------------------------------------------------------------------------------------------------------
+#service {
+    @include mixin.colorContrast;
+    padding-bottom: 40px;
 
-    .expertise {
+    .divider {
+        @include mixin.divider;
+    }
+
+    .service-top {
+
+        // responsive
+        @include mixin.mq(tablet) {
+
+            h3 {
+                padding: 10px 0;
+            }
+
+            p {
+                padding: 20px;
+                font-size: x-large;
+                margin: 0 auto;
+                max-width: 1020px;
+            }
+        }
+
+    }
+
+    .service {
         padding: 16px 0;
-        border-bottom: 2px solid gray;
 
-        .expertise-img {
+        .service-img {
             font-size: xx-large;
         }
 
+        h3 {
+            padding: 4px 0;
+        }
+
         p {
             @include mixin.paragraphAdjust;
         }
 
+
         .all-services {
-            @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+            @include mixin.flexContainer(row, center, center);
             margin: 16px auto;
             width: 150px;
-            height: 50px;
-            background-color: black;
+            height: 40px;
+            background-color: #FFFFFB;
             border-radius: 8px;
 
             span {
-                color: white;
+                color: #080808;
             }
 
             .fa-arrow-right {
                 margin-left: 10px;
+                color: #080808;
             }
         }
     }
 
-    .exp-detail {
-        @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+    .service-element {
+        @include mixin.flexContainer(row, center, center);
 
-        .expertise-content {
-            width: 80%;
+        .exp-detail {
+            @include mixin.flexContainer(row, center, center);
+            @include mixin.colorContrast(#1C1C1C, #FFFFFB);
+            aspect-ratio: 4 / 2;
+            max-width: 480px;
+            border-radius: 8px;
+            margin: 8px;
+
+            .service-content {
+                width: 80%;
+            }
+
+            .service-arrow {
+                @include mixin.icon(28px, 28px, #4D5139, 50px, auto 8px);
+                display: flex;
+                @include mixin.flexContainer(row, center, center);
+            }
         }
+    }
 
-        .expertise-arrow {
-            @include mixin.icon;
+    #emphasis {
+        @include mixin.colorContrast(#4D5139, #FFFFFB);
+
+        .service-arrow {
+            @include mixin.icon(28px, 28px, #1C1C1C, 50px, auto 8px);
+            @include mixin.flexContainer(row, center, center);
         }
     }
 
 }
 
 .fa-arrow-right {
-    color: white;
+    color: #FFFFFB;
     transform: rotate(-45deg);
 }
 
+
+// ------------------------------------------------------------------------------------------------------------------------
+// experience section
+// ------------------------------------------------------------------------------------------------------------------------
 #experience {
+
+    padding: 16px;
+
     h1 {
-        font-size: 40px;
+        font-size: 30px;
+        padding-bottom: 16px;
+        margin: 0 auto;
+        max-width: 500px;
     }
+
+    @include mixin.mq(tablet) {
+        @include mixin.gridContainer("main percent" "main users", repeat(2, 1fr), 50vh 50vh);
+        padding: 16px 0;
+        place-items: center;
+        position: relative;
+
+        .verticle {
+            position: absolute;
+            border-left: 2px solid rgba(130, 130, 130, 0.6);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            left: 50%;
+            height: 90%;
+        }
+
+        .experience-title {
+            grid-area: main;
+        }
+
+        h1 {
+            font-size: 50px;
+            padding-bottom: 4px;
+        }
+
+        p {
+            font-size: x-large;
+            @include mixin.paragraphAdjust(6);
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #percent {
+            grid-area: percent;
+
+            .divider {
+                position: absolute;
+                border-bottom: 2px solid rgba(130, 130, 130, 0.6);
+                left: 55%;
+                top: 50%;
+                margin: auto;
+                width: 40%;
+            }
+        }
+
+        #users {
+            grid-area: users;
+        }
+    }
+
 }
 
+// ------------------------------------------------------------------------------------------------------------------------
+// team section
+// ------------------------------------------------------------------------------------------------------------------------
 #team {
     @include mixin.colorContrast;
 
     .team-images {
-        @include mixin.flexContainer($flex-direction: row, $justify-content: center, $align-items: center);
+        @include mixin.flexContainer(row, center, center);
+
         .team-member {
             width: 250px;
             aspect-ratio: 3 / 4;
             padding: 10px 12px;
             margin: 15px 15px;
-            background-color: #1b1b1b;
+            background-color: #1C1C1C;
             border-radius: 16px;
             position: relative;
-            h3, h4 {
+
+            h3,
+            h4 {
                 text-align: left;
             }
+
             h3 {
                 padding: 8px 0;
             }
+
             img {
                 width: 90%;
                 margin: 16px 0;
             }
         }
 
+        .emphasis {
+            background-color: #08192D;
+        }
+
         .linkedin {
             .fa-linkedin-in {
-                padding: 6px 0;
-                @include mixin.icon($width: 30px, $height: 30px, $background-color: #5693e8, $border-radius: 50px, $margin: auto 8px);
+                @include mixin.icon(30px, 30px, #7DB9DE, 50px, auto 8px);
+                @include mixin.flexContainer(row, center, center);
                 position: absolute;
                 bottom: 14px;
                 right: 8px;
             }
+            .fa-linkedin-in:hover {
+                background-color: #005CAF;
+            }
         }
+
     }
 }
 
+// ------------------------------------------------------------------------------------------------------------------------
+// contact section
+// ------------------------------------------------------------------------------------------------------------------------
 #contact {
+    @include mixin.colorContrast(#4D5139);
+
+    // responsive
+    @include mixin.mq(tablet) {
+        @include mixin.gridContainer("form-title form", repeat(2, 1fr));
+        min-height: 60vh;
+    }
+
+    // responsive
+    #form-title {
+        margin-bottom: 10px;
+        @include mixin.mq(tablet) {
+            grid-area: form-title;
+            max-width: 600px;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                margin: auto;
+
+                h2 {
+                    font-size: 36px;
+                    padding: 0 16px;
+                }
+
+                p {
+                    font-size: 20px;
+                    padding: 16px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
     .form {
-        @include mixin.flexContainer($flex-direction: column, $justify-content: center, $align-items: center);
+        @include mixin.flexContainer(column, center, center);
+
+        // responsive
+        @include mixin.mq(tablet) {
+            display: block;
+            grid-area: form;
+            max-width: 600px;
+            margin: auto;
+        }
 
         input {
             padding: 8px 0;
             margin: 8px 0;
             width: 80%;
+            @include mixin.colorContrast(#4D5139);
+            border: none;
+            border-bottom: 1px solid #FFFFFB;
+        }
+
+        input::placeholder {
+            color: #FFFFFB;
+            opacity: 1;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                font-size: 16px;
+            }
+        }
+
+        input::-ms-input-placeholder {
+            color: #FFFFFB;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                font-size: 16px;
+            }
+        }
+
+        #comment {
+            padding: 8px 0;
+            margin: 8px 0;
+            width: 80%;
+            @include mixin.colorContrast(#4D5139);
+            border: none;
+            border-bottom: 1px solid #FFFFFB;
+            resize: none;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                font-size: 16px;
+            }
+        }
+
+        #comment::placeholder {
+            color: #FFFFFB;
+            opacity: 1;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                font-size: 16px;
+            }
+        }
+
+        #comment::-ms-input-placeholder {
+            color: #FFFFFB;
+
+            // responsive
+            @include mixin.mq(tablet) {
+                font-size: 16px;
+            }
         }
 
         #submit {
-            @include mixin.colorContrast;
-            margin-top: 9px;
-            padding: 8px;
+            margin: 24px 0 12px 0;
+            padding: 10px 16px;
+            font-size: 16px;
+            @include mixin.colorContrast(#1C1C1C);
         }
     }
 }
 
-#repeat {}
+// Photo by <a href="https://unsplash.com/es/@onlywhite?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Danil Moiseev</a> on <a href="https://unsplash.com/s/photos/man-mono?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
