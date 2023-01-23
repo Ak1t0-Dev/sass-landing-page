@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   text-align: center;
   width: 100%;
@@ -134,6 +138,10 @@ footer .contacts .icons {
 footer .contacts .icons .fa-brands:hover {
   color: #005CAF;
 }
+footer .contacts .icons a {
+  text-decoration: none;
+  color: #080808;
+}
 footer .contacts .email-item {
   padding: 4px 0;
 }
@@ -183,6 +191,8 @@ footer .footer-list ul li {
 footer .footer-list ul li a {
   text-decoration: none;
   color: #080808;
+  width: 100%;
+  display: block;
 }
 footer .footer-list ul li:hover {
   background-color: #1C1C1C;
@@ -202,9 +212,37 @@ footer .footer-list ul li:hover a {
 @media screen and (min-width: 768px) {
   #introduce p {
     font-size: x-large;
-    width: 90%;
+    width: 85%;
     margin: 16px auto;
   }
+}
+#introduce .contact-now {
+  background-color: #080808;
+  color: #FFFFFB;
+  margin: 8px auto 4px auto;
+  width: 120px;
+  padding: 4px;
+  font-size: medium;
+  border: 2px solid #080808;
+  border-radius: 8px;
+  transition: all 0.5s;
+}
+@media screen and (min-width: 768px) {
+  #introduce .contact-now {
+    width: 180px;
+    font-size: 20px;
+    margin-right: 8%;
+  }
+}
+#introduce .contact-now a {
+  text-decoration: none;
+  color: #FFFFFB;
+}
+#introduce .contact-now:hover {
+  background-color: #FFFFFB;
+}
+#introduce .contact-now:hover a {
+  color: #080808;
 }
 
 #picture {
@@ -249,19 +287,13 @@ footer .footer-list ul li:hover a {
 }
 #picture .concept .center .inline-center {
   vertical-align: middle;
+  font-size: x-large;
 }
 @media screen and (min-width: 768px) {
   #picture .concept .center .inline-center {
     display: inline-block;
-    margin: 10px;
-  }
-}
-#picture .concept .center span {
-  font-size: x-large;
-}
-@media screen and (min-width: 768px) {
-  #picture .concept .center span {
     font-size: 40px;
+    margin: 10px;
   }
 }
 #picture .concept .center .fa-snowflake {
@@ -480,7 +512,9 @@ footer .footer-list ul li:hover a {
   width: 150px;
   height: 40px;
   background-color: #FFFFFB;
+  border: 1px solid #FFFFFB;
   border-radius: 8px;
+  transition: all 0.5s;
 }
 #service .service .all-services span {
   color: #080808;
@@ -488,6 +522,15 @@ footer .footer-list ul li:hover a {
 #service .service .all-services .fa-arrow-right {
   margin-left: 10px;
   color: #080808;
+}
+#service .service .all-services:hover {
+  background-color: #080808;
+}
+#service .service .all-services:hover span {
+  color: #FFFFFB;
+}
+#service .service .all-services:hover .fa-arrow-right {
+  color: #FFFFFB;
 }
 #service .service-element {
   display: flex;
@@ -507,7 +550,7 @@ footer .footer-list ul li:hover a {
   aspect-ratio: 4/2;
   max-width: 480px;
   border-radius: 8px;
-  margin: 8px;
+  margin: 10px;
 }
 #service .service-element .exp-detail .service-content {
   width: 80%;
@@ -642,6 +685,10 @@ footer .footer-list ul li:hover a {
 }
 #team .team-images .emphasis {
   background-color: #08192D;
+}
+#team .team-images .linkedin a {
+  text-decoration: none;
+  color: #FFFFFB;
 }
 #team .team-images .linkedin .fa-linkedin-in {
   width: 30px;

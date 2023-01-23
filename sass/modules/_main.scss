@@ -9,6 +9,7 @@
     background-color: #FFFFFB;
 
     h1 {
+
         // responsive
         @include mixin.mq(tablet) {
             font-size: xx-large;
@@ -16,11 +17,42 @@
     }
 
     p {
+
         // responsive
         @include mixin.mq(tablet) {
             font-size: x-large;
-            width: 90%;
+            width: 85%;
             margin: 16px auto;
+        }
+    }
+
+    .contact-now {
+        @include mixin.colorContrast;
+        margin: 8px auto 4px auto;
+        width: 120px;
+        padding: 4px;
+        font-size: medium;
+        border: 2px solid #080808;
+        border-radius: 8px;
+        transition: all .5s;
+
+        // responsive
+        @include mixin.mq(tablet) {
+            width: 180px;
+            font-size: 20px;
+            margin-right: 8%;
+        }
+
+        a {
+            @include mixin.aTagDecorate(none, #FFFFFB);
+        }
+    }
+
+    .contact-now:hover {
+        background-color: #FFFFFB;
+
+        a {
+            color: #080808;
         }
     }
 
@@ -61,20 +93,13 @@
 
             .inline-center {
                 vertical-align: middle;
-
-                // responsive
-                @include mixin.mq(tablet) {
-                    display: inline-block;
-                    margin: 10px;
-                }
-            }
-
-            span {
                 font-size: x-large;
 
                 // responsive
                 @include mixin.mq(tablet) {
+                    display: inline-block;
                     font-size: 40px;
+                    margin: 10px;
                 }
             }
 
@@ -306,7 +331,9 @@
             width: 150px;
             height: 40px;
             background-color: #FFFFFB;
+            border: 1px solid #FFFFFB;
             border-radius: 8px;
+            transition: all .5s;
 
             span {
                 color: #080808;
@@ -315,6 +342,18 @@
             .fa-arrow-right {
                 margin-left: 10px;
                 color: #080808;
+            }
+        }
+
+        .all-services:hover {
+            background-color: #080808;
+
+            span {
+                color: #FFFFFB;
+            }
+
+            .fa-arrow-right {
+                color: #FFFFFB;
             }
         }
     }
@@ -328,7 +367,7 @@
             aspect-ratio: 4 / 2;
             max-width: 480px;
             border-radius: 8px;
-            margin: 8px;
+            margin: 10px;
 
             .service-content {
                 width: 80%;
@@ -463,6 +502,10 @@
         }
 
         .linkedin {
+            a {
+                @include mixin.aTagDecorate(none, #FFFFFB);
+            }
+
             .fa-linkedin-in {
                 @include mixin.icon(30px, 30px, #7DB9DE, 50px, auto 8px);
                 @include mixin.flexContainer(row, center, center);
@@ -470,6 +513,7 @@
                 bottom: 14px;
                 right: 8px;
             }
+
             .fa-linkedin-in:hover {
                 background-color: #005CAF;
             }
@@ -493,6 +537,7 @@
     // responsive
     #form-title {
         margin-bottom: 10px;
+
         @include mixin.mq(tablet) {
             grid-area: form-title;
             max-width: 600px;

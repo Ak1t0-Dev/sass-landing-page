@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     text-align: center;
     width: 100%;
@@ -128,6 +132,10 @@ footer {
             .fa-brands:hover {
                 color: #005CAF;
             }
+
+            a {
+                @include mixin.aTagDecorate(none, #080808);
+            }
         }
 
 
@@ -174,11 +182,14 @@ footer {
 
                 a {
                     @include mixin.aTagDecorate;
+                    width: 100%;
+                    display: block;
                 }
             }
 
             li:hover {
                 background-color: #1C1C1C;
+
                 a {
                     color: #FFFFFB;
                 }
